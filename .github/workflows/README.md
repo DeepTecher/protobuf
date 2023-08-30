@@ -153,6 +153,10 @@ While the ccache caches quickly over-run our GitHub action cache, they also
 quickly become useless.  Since GitHub prunes caches based on the time they were
 last used, this just means that we'll see quicker turnover.
 
+## sccache
+
+TODO
+
 ## Bazelisk
 
 Bazelisk will automatically download a pinned version of Bazel on first use.
