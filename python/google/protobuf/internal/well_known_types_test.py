@@ -208,6 +208,11 @@ class TimeUtilTest(TimeUtilTestBase):
                      message.ToJsonString())
     self.assertEqual(-1, message.ToSeconds())
 
+    message.FromSeconds(0.5)
+    self.assertEqual('0.500s',
+                     message.ToJsonString())
+    self.assertEqual(500, message.ToMilliseconds())
+
     # Test truncation behavior.
     message.FromNanoseconds(1999)
     self.assertEqual(1, message.ToMicroseconds())

@@ -356,8 +356,7 @@ class Duration(object):
 
   def FromSeconds(self, seconds):
     """Converts seconds to Duration."""
-    self.seconds = seconds
-    self.nanos = 0
+    self.FromMicroseconds(int(seconds * _MICROS_PER_SECOND))
 
   def ToTimedelta(self):
     """Converts Duration to timedelta."""
