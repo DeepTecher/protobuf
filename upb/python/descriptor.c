@@ -113,6 +113,9 @@ static PyObject* PyUpb_DescriptorBase_GetOptions(PyUpb_DescriptorBase* self,
     // Load descriptors protos if they are not loaded already. We have to do
     // this lazily, otherwise, it would lead to circular imports.
     PyObject* mod = PyImport_ImportModule(PYUPB_DESCRIPTOR_MODULE);
+    if (mod == NULL) {
+      return NULL;
+    }
     Py_DECREF(mod);
 
     // Find the correct options message.
